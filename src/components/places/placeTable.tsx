@@ -13,7 +13,6 @@ export default async function PlaceTable() {
     .catch((er) => {
       console.log(":::::::::::::::::::::::::er", er);
     });
-  console.log(">>>>>>>>>>>>>>>>>>>hostspotshostspotshostspots>", hostspots);
   return (
     <div className="rounded-xl shadow-sm h-[500px] overflow-y-auto no-scrollbar">
       <table className="w-full table-fixed">

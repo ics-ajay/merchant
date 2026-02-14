@@ -195,3 +195,95 @@ export type PriceRangeResponse = {
   message: string;
   result: PriceRangeResult;
 };
+// Single user
+export interface User {
+  user_id: number;
+  user_firstName: string;
+  user_lastName: string;
+  user_phoneNumber: string;
+  u_dob: string; // ISO date string
+  user_totalConnections: string;
+
+  isActive: boolean;
+  isDroppedIn: boolean;
+  isMembersOnlyEnabled: boolean;
+}
+export interface UsersResult {
+  count: number;
+  data: User[];
+}
+export interface GetUsersResponse {
+  statusCode: number;
+  status: boolean;
+  message: string;
+  result: UsersResult;
+}
+interface Option {
+  id: number;
+  name: string;
+}
+export interface PlaceDrawerProps {
+  open: boolean;
+  onClose: () => void;
+  placeCategories: Option[];
+  foodCategories: Option[];
+  neighbourhoods: Option[];
+  vibeTypes: Option[];
+  priceRange: {
+    id: number;
+    range: string;
+  }[];
+}
+export type LocationStateType = {
+  name: string;
+  placeId: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+} | null;
+export interface HotspotDetailsResponse {
+  statusCode: number;
+  status: boolean;
+  message: string;
+  result: HotspotPlace;
+}
+export interface HotspotPlace {
+  id: number;
+  googleLatitude: number;
+  googleLongitude: number;
+  googleLocationName: string;
+  googleAddress: string;
+  googleContact: string | null;
+  googleWebsite: string | null;
+  googleRating: number | null;
+  googleReviews: number | null;
+  googleOpeningHours: any | null;
+  googleTypes: string[] | null;
+  googlePlaceId: string;
+  image: string;
+  hotspotType: "place"; // restrict type if always place
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+
+  placeDetails: string;
+  placeOpeningHours: PlaceOpeningHour[];
+
+  isDeal: boolean;
+  redeemCode: string | null;
+  dealDescription: string | null;
+
+  clickedCount: number;
+  sharedCount: number;
+
+  priceRange: any | null;
+  vibeType: any | null;
+  placeCategory: any | null;
+  foodCategory: any | null;
+}
+export interface PlaceOpeningHour {
+  day: string;
+  enabled: boolean;
+  open?: string;
+  close?: string;
+}

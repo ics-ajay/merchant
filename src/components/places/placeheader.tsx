@@ -8,7 +8,7 @@ export default function PlaceHeader({
   children: React.ReactNode;
 }) {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const hanldeDrawerStatus = () => !openDrawer;
+  const hanldeDrawerStatus = () => setOpenDrawer(!openDrawer);
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
